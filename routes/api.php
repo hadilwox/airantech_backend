@@ -8,8 +8,8 @@ use App\Http\Controllers\InstructorController;
 use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
-Route::post('/register/student', [AuthController::class, 'registerStudent']);
-Route::post('/register/instructor', [AuthController::class, 'registerInstructor']);
+Route::post('/register/student', [AuthController::class, 'registerStudent'])->middleware('throttle:register');
+Route::post('/register/instructor', [AuthController::class, 'registerInstructor'])->middleware('throttle:register');
 Route::post('/login', [AuthController::class, 'login'])->middleware('throttle:login');
 
 Route::middleware('auth:sanctum')->group(function () {
