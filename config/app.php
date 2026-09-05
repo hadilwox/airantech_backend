@@ -56,6 +56,19 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Frontend URL
+    |--------------------------------------------------------------------------
+    |
+    | The origin of the Vue SPA. Used for CORS, and to simulate SPA-origin
+    | requests in tests (Sanctum only attaches stateful session/cookie
+    | middleware to requests whose Referer/Origin matches a stateful domain).
+    |
+    */
+
+    'frontend_url' => env('FRONTEND_URL', 'http://localhost:5173'),
+
+    /*
+    |--------------------------------------------------------------------------
     | Application Timezone
     |--------------------------------------------------------------------------
     |

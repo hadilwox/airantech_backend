@@ -1,0 +1,26 @@
+<?php
+
+namespace Database\Factories;
+
+use App\Models\CourseCategory;
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+/**
+ * @extends Factory<CourseCategory>
+ */
+class CourseCategoryFactory extends Factory
+{
+    /**
+     * Define the model's default state.
+     *
+     * @return array<string, mixed>
+     */
+    public function definition(): array
+    {
+        return [
+            'name' => fake()->unique()->words(2, true),
+            'code_prefix' => (string) fake()->unique()->numberBetween(1, 9),
+            'is_active' => true,
+        ];
+    }
+}
